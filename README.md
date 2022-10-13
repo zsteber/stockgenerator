@@ -1,0 +1,2 @@
+# stockgenerator
+ 
