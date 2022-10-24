@@ -1,18 +1,22 @@
 package stockgen;
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
+        
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * Unit test for simple App.
- */
-class AppTest {
-    /**
-     * Rigorous Test.
-     */
-    @Test
-    void testApp() {
-        assertEquals(1, 1);
-    }
-}
+        
+        class MainTest {
+        
+            @Test
+            void doesHTMLExist() {
+                File html = new File("data300.html");
+                assertEquals(html.exists(), true);
+            }
+            
+            @Test
+            void doesPDFExist() {
+                File pdf = new File("data300.pdf");
+                assertEquals(pdf.exists(), true);
+            }
+             
+        }
