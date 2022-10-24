@@ -51,18 +51,18 @@ public class Main {
         String firstName = (String) account.get("first_name");
         String lastName = (String) account.get("last_name");
         String email = (String) account.get("email");
-        String phone = (String) account.get("phone");
-        String beginningBalance = (String) account.get("beginning_balance");
+        String phoneNumber = (String) account.get("phoneNumber");
+        String startingBalance = (String) account.get("starting_balance");
 
-        Double actualBalance = Double.parseDouble(beginningBalance.replaceAll("[$]", ""));
+        Double actualBalance = Double.parseDouble(startingBalance.replaceAll("[$]", ""));
 
-        JSONArray trades = (JSONArray) account.get("stock_trades");
+        JSONArray trades = (JSONArray) account.get("trades");
 
         stockInfoList = new ArrayList<StockInfo>();
 
         trades.forEach(stockInfo -> stockInfoList.add(HandleStockTrades( (JSONObject) stockInfo)));
 
-        account1 = new Account(accountNumber, ssn, firstName, lastName, email, phone, actualBalance);
+        account1 = new Account(accountNumber, ssn, firstName, lastName, email, phoneNumber, actualBalance);
         account1.setStockTradeList(stockInfoList);
 
         HandleCashAndStockHoldings(account1);
@@ -84,7 +84,7 @@ public class Main {
     public static StockInfo HandleStockTrades(JSONObject stock) {
         String type = (String) stock.get("type");
         String stockSymbol = (String) stock.get("stock_symbol");
-        Long shareCount = (Long) stock.get("count_shares");
+        Long shareCount = (Long) stock.get("shares");
         String pricePerShare = (String) stock.get("price_per_share");
 
         Double perShare = Double.parseDouble(pricePerShare.replaceAll("[$]", ""));
