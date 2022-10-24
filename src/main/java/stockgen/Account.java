@@ -11,21 +11,21 @@ public class Account {
     private String last_name;
     private String email;
     private String phone;
-    private Double beginning_balance;
+    private Double startingBalance;
     private Double cash_amount;
     private Double stock_holdings;
     private ArrayList<StockInfo> stockTradeList;
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
 
-    public Account(Long account_number, String ssn, String first_name, String last_name, String email, String phone, Double beginning_balance) {
+    public Account(Long account_number, String ssn, String first_name, String last_name, String email, String phone, Double startingBalance) {
         this.account_number = account_number;
         this.ssn = ssn;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.phone = phone;
-        this.beginning_balance = beginning_balance;
-        this.cash_amount = beginning_balance;
+        this.startingBalance = startingBalance;
+        this.cash_amount = startingBalance;
         this.stock_holdings = 0.0;
     }
 
@@ -77,12 +77,12 @@ public class Account {
         this.phone = phone;
     }
 
-    public Double getBeginning_balance() {
-        return beginning_balance;
+    public Double getStartingBalance() {
+        return startingBalance;
     }
 
-    public void setBeginning_balance(Double beginning_balance) {
-        this.beginning_balance = beginning_balance;
+    public void setStarting_balance(Double startingBalance) {
+        this.startingBalance = startingBalance;
     }
 
     public Double getCash_amount() {
@@ -118,6 +118,6 @@ public class Account {
                 "<p> Last Name: " + last_name + "</p><br/>" +
                 "<p> Email: " + email + "</p><br/>" +
                 "<p> Phone: " + phone + "</p><br/>" +
-                "<p> Beginning Balance: $" + beginning_balance + "</p>";
+                "<p> Starting Balance: $" + startingBalance + "</p>";
     }
 }

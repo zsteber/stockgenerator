@@ -22,7 +22,7 @@ public class Main {
     public static void ReadJSONData(){
         JSONParser jsonParser = new JSONParser();
 
-        try (FileReader reader = new FileReader("stock_transations.by.account.holder.json"))
+        try (FileReader reader = new FileReader("datastocks.json"))
         {
             Object obj = jsonParser.parse(reader);
 
@@ -52,7 +52,7 @@ public class Main {
         String lastName = (String) account.get("last_name");
         String email = (String) account.get("email");
         String phoneNumber = (String) account.get("phoneNumber");
-        String startingBalance = (String) account.get("starting_balance");
+        String startingBalance = (String) account.get("beginning_balance");
 
         Double actualBalance = Double.parseDouble(startingBalance.replaceAll("[$]", ""));
 
