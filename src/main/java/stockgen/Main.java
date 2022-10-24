@@ -129,14 +129,14 @@ public class Main {
 
     public static void ConvertHTMLToPDF() throws Exception {
         File directory = new File("./htmls/");
-        File[] directoryListing = dir.listFiles();
+        File[] directoryListing = directory.listFiles();
         if (directoryListing != null) {
             for (File child : directoryListing) {
                 String filename = child.toString().replaceAll(".\\\\htmls\\\\", "");
                 filename = filename.replaceAll(".html", "");
                 try (OutputStream os = new FileOutputStream("./PDF/" + filename + ".pdf")) {
                     PdfRendererBuilder builder = new PdfRendererBuilder();
-                    builder.withUri("C:\ A. Neumont\ Quarter 5\ CSC180\ stockgenerator\ htmls" + filename + ".html");
+                    builder.withUri("C:/A. Neumont/Quarter/5CSC180/stockgenerator/htmls" + filename + ".html");
                     builder.toStream(os);
                     builder.run();
                 }
