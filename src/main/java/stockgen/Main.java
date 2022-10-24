@@ -56,7 +56,7 @@ public class Main {
 
         Double actualBalance = Double.parseDouble(startingBalance.replaceAll("[$]", ""));
 
-        JSONArray trades = (JSONArray) account.get("trades");
+        JSONArray trades = (JSONArray) account.get("stock_trades");
 
         stockInfoList = new ArrayList<StockInfo>();
 
@@ -84,7 +84,7 @@ public class Main {
     public static StockInfo HandleStockTrades(JSONObject stock) {
         String type = (String) stock.get("type");
         String stockSymbol = (String) stock.get("stock_symbol");
-        Long shareCount = (Long) stock.get("shares");
+        Long shareCount = (Long) stock.get("share_count");
         String pricePerShare = (String) stock.get("price_per_share");
 
         Double perShare = Double.parseDouble(pricePerShare.replaceAll("[$]", ""));
